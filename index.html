@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hữu Kim ❤️ Thảo Anh</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Card Opening Animation -->
+    <div class="card-container" id="cardContainer">
+        <div class="card-left">
+            <div class="card-content">
+                <div class="ornament-top"></div>
+                <h2>Hữu Kim</h2>
+                <div class="heart-icon"><i class="fas fa-heart"></i></div>
+                <div class="ornament-bottom"></div>
+            </div>
+        </div>
+        <div class="card-right">
+            <div class="card-content">
+                <div class="ornament-top"></div>
+                <h2>Thảo Anh</h2>
+                <div class="date-text">28.12.2025</div>
+                <div class="ornament-bottom"></div>
+            </div>
+        </div>
+        <div class="card-center">
+            <div class="center-line"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Custom Cursor -->
+        <div class="custom-cursor" id="customCursor"></div>
+
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="floating-heart">💕</div>
+            <div class="floating-heart">💖</div>
+            <div class="floating-heart">💝</div>
+            <div class="floating-rose">🌹</div>
+            <div class="floating-rose">🌸</div>
+        </div>
+
+        <!-- Particle Background -->
+        <div class="particles-container" id="particles"></div>
+
+        <!-- Music Player -->
+        <div class="music-player" onclick="toggleMusic()">
+            <i class="fas fa-music" id="music-icon"></i>
+            <div class="music-waves">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <audio id="background-music" loop>
+            <source src="music/wedding-song.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-overlay"></div>
+            <div class="overlay">
+                <h3>Save The Date</h3>
+                <h1>Hữu Kim – Thảo Anh</h1>
+                <div class="heart-divider magical-heart">
+                    <i class="fas fa-heart"></i>
+                    <div class="heart-sparkles">
+                        <span>✨</span>
+                        <span>✨</span>
+                        <span>✨</span>
+                        <span>✨</span>
+                    </div>
+                </div>
+                <p>Happy Wedding</p>
+            </div>
+
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <div class="container">
+                <h2 class="section-title slide-in">Đếm Ngược Đến Ngày Trọng Đại</h2>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Ngày</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Giờ</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Phút</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Giây</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Couple Story Section -->
+        <section class="story-section">
+            <div class="container">
+                <h2 class="section-title">Câu Chuyện Tình Yêu</h2>
+                <div class="story-timeline">
+                    <div class="story-item left">
+                        <div class="story-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="story-content">
+                            <h3>Lần Đầu Gặp Gỡ</h3>
+                            <p>Chúng tôi gặp nhau trong một buổi chiều mùa thu tuyệt đẹp. Đó là định mệnh đã sắp đặt.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="story-item right">
+                        <div class="story-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="story-content">
+                            <h3>Ngày Đầu Hẹn Hò</h3>
+                            <p>Buổi hẹn hò đầu tiên đầy ắp tiếng cười và những kỷ niệm không thể nào quên.</p>
+                        </div>
+                    </div>
+                    <div class="story-item left">
+                        <div class="story-icon">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <div class="story-content">
+                            <h3>Lời Cầu Hôn</h3>
+                            <p>Một khoảnh khắc lãng mạn đã biến giấc mơ thành hiện thực khi anh ấy quỳ gối cầu hôn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wedding Info Section -->
+        <section class="wedding-info">
+            <div class="container">
+                <h2 class="section-title">Thông Tin Tiệc Cưới</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Nhà Trai</h3>
+                        <div class="info-details">
+                            <p class="address">Diễn Châu<br>Nghệ An</p>
+                            <div class="time-info">
+                                <p class="time">🕐 Vào lúc 9 giờ</p>
+                                <p class="date-detail">Chủ nhật, 28/12/2025</p>
+                                <p class="lunar">Tức ngày 9 tháng 11 năm Ất Tỵ</p>
+                            </div>
+                            <a href="https://maps.app.goo.gl/ZLzMHfB7tMQ2pp5Y6" target="_blank" class="map-btn">
+                                <i class="fas fa-map-marker-alt"></i> Xem bản đồ
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Nhà Gái</h3>
+                        <div class="info-details">
+                            <p class="address">Nam Đàn<br>Nghệ An</p>
+                            <div class="time-info">
+                                <p class="time">🕐 Vào lúc 9 giờ</p>
+                                <p class="date-detail">Chủ nhật, 28/12/2025</p>
+                                <p class="lunar">Tức ngày 9 tháng 11 năm Ất Tỵ</p>
+                            </div>
+                            <a href="https://maps.app.goo.gl/aTZQKgeDfS4aExHn8" target="_blank" class="map-btn">
+                                <i class="fas fa-map-marker-alt"></i> Xem bản đồ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wedding Photos Showcase -->
+        <section class="wedding-photos">
+            <div class="container">
+                <h2 class="section-title">Ảnh Cưới Của Chúng Tôi</h2>
+                <div class="photos-grid">
+                    <div class="photo-item large">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop"
+                            alt="Ảnh cưới chính">
+                        <div class="photo-overlay">
+                            <h3>Hữu Kim & Thảo Anh</h3>
+                            <p>Tình yêu đích thực</p>
+                        </div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&h=300&fit=crop"
+                            alt="Ảnh đôi 1">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=300&fit=crop"
+                            alt="Ảnh đôi 2">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&h=300&fit=crop"
+                            alt="Ảnh đôi 3">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop"
+                            alt="Ảnh đôi 4">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="swiper gallerySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&h=400&fit=crop"
+                                    alt="Wedding Photo 1">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=400&h=400&fit=crop"
+                                    alt="Wedding Photo 2">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&h=400&fit=crop"
+                                    alt="Wedding Photo 3">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=400&fit=crop"
+                                    alt="Wedding Photo 4">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&h=400&fit=crop"
+                                    alt="Wedding Photo 5">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=400&h=400&fit=crop"
+                                    alt="Wedding Photo 6">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&h=400&fit=crop"
+                                    alt="Wedding Photo 7">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&h=400&fit=crop"
+                                    alt="Wedding Photo 8">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gift Section -->
+        <section class="gift-section">
+            <div class="container">
+                <h2 class="section-title">Mừng Cưới</h2>
+                <p class="gift-subtitle">Sự hiện diện của bạn là món quà lớn nhất <br /> Nếu bạn muốn gửi lời chúc mừng
+                </p>
+                <div class="heart-button" onclick="toggleQR()">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="qr-container" id="qrContainer">
+                    <div class="qr-grid">
+                        <div class="qr-card">
+                            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=400&fit=crop"
+                                alt="Chú rể" class="qr-avatar">
+                            <h3>Nhà Trai</h3>
+                            <p>Hữu Kim</p>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Bank:%20Vietcombank%0AAccount:%20123456789%0AName:%20Huu%20Kim"
+                                alt="QR Nhà Trai" class="qr-code">
+                        </div>
+                        <div class="qr-card">
+                            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=400&fit=crop"
+                                alt="Cô dâu" class="qr-avatar">
+                            <h3>Nhà Gái</h3>
+                            <p>Thảo Anh</p>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Bank:%20Techcombank%0AAccount:%20987654321%0AName:%20Thao%20Anh"
+                                alt="QR Nhà Gái" class="qr-code">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp-section">
+            <div class="container">
+                <h2 class="section-title">Xác Nhận Tham Dự</h2>
+                <p class="rsvp-subtitle">Vui lòng cho chúng tôi biết bạn có thể tham dự không</p>
+                <form class="rsvp-form" id="rsvpForm">
+                    <div class="form-group">
+                        <input type="text" id="guestName" placeholder="Tên của bạn" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="attendance" required>
+                            <option value="">Bạn có thể tham dự không?</option>
+                            <option value="yes">Có, tôi sẽ tham dự</option>
+                            <option value="no">Rất tiếc, tôi không thể tham dự</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Lời chúc của bạn (tùy chọn)"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Gửi xác nhận
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="couple-initials">
+                        <span>K</span>
+                        <i class="fas fa-heart"></i>
+                        <span>A</span>
+                    </div>
+                    <p>Cảm ơn bạn đã là một phần trong ngày đặc biệt của chúng tôi</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
+</div>
+</div>
+</div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+
+</html>
