@@ -11,30 +11,17 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    
 </head>
 
 <body>
     <!-- Card Opening Animation -->
     <div class="card-container" id="cardContainer">
-        <div class="card-left">
-            <div class="card-content">
-                <div class="ornament-top"></div>
-                <h2>Hữu Kim</h2>
-                <div class="heart-icon"><i class="fas fa-heart"></i></div>
-                <div class="ornament-bottom"></div>
-            </div>
-        </div>
-        <div class="card-right">
-            <div class="card-content">
-                <div class="ornament-top"></div>
-                <h2>Thảo Anh</h2>
-                <div class="date-text">28.12.2025</div>
-                <div class="ornament-bottom"></div>
-            </div>
-        </div>
-        <div class="card-center">
-            <div class="center-line"></div>
-        </div>
+        <div class="card-left"></div>
+        <div class="card-right"></div>
+        <div class="circle-left animate__bounceInDown"></div>
     </div>
 
     <!-- Main Content -->
@@ -56,16 +43,24 @@
 
         <!-- Music Player -->
         <div class="music-player" onclick="toggleMusic()">
-            <i class="fas fa-music" id="music-icon"></i>
-            <div class="music-waves">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="music-disc" id="music-disc">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=100&h=100&fit=crop" alt="Music">
             </div>
         </div>
-        <audio id="background-music" loop>
+        <audio id="background-music" loop autoplay muted>
             <source src="music/wedding-song.mp3" type="audio/mpeg">
         </audio>
+
+        <div data-id="donate-fab" id="call-to-donate" style="bottom: 0px;" onclick="showDialogDonate()">
+            <a>
+                <div class="sticky-btn-wrapper"><img src="images/front.svg" class="front"><svg width="86"
+                        height="97" viewBox="0 0 86 97" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="sticky-btn-opener"></svg><img src="images/back.svg" class="back"> <img
+                        src="images/button.svg" class="button"> <img src="images/money1.png"
+                        class="money1"> <img src="images/money2.png" class="money2"> <img
+                        src="images/money3.png" class="money3"></div>
+            </a>
+        </div>
 
         <!-- Hero Section -->
         <section class="hero" id="home">
@@ -192,37 +187,79 @@
             </div>
         </section>
 
+        <!-- Bride Section -->
+        <section class="bride-section">
+            <div class="container">
+                <h2 class="section-title bride-title">Cô Dâu Thảo Anh</h2>
+                <div class="bride-photos">
+                    <div class="bride-photo main-photo">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop"
+                            alt="Cô dâu Thảo Anh">
+                    </div>
+                    <div class="bride-photo side-photo">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=500&fit=crop"
+                            alt="Cô dâu Thảo Anh 2">
+                    </div>
+                </div>
+                <div class="bride-info">
+                    <p class="bride-quote">"Tình yêu không chỉ là nhìn vào mắt nhau, mà là cùng nhau nhìn về một hướng."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Groom Section -->
+        <section class="groom-section">
+            <div class="container">
+                <h2 class="section-title groom-title">Chú Rể Hữu Kim</h2>
+                <div class="groom-photos">
+                    <div class="groom-photo side-photo">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop"
+                            alt="Chú rể Hữu Kim">
+                    </div>
+                    <div class="groom-photo main-photo">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=600&fit=crop"
+                            alt="Chú rể Hữu Kim 2">
+                    </div>
+                </div>
+                <div class="groom-info">
+                    <p class="groom-quote">"Hạnh phúc không phải là điểm đến, mà là hành trình mà chúng ta cùng nhau
+                        đi."</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Wedding Photos Showcase -->
         <section class="wedding-photos">
             <div class="container">
                 <h2 class="section-title">Ảnh Cưới Của Chúng Tôi</h2>
-                <div class="photos-grid">
-                    <div class="photo-item large">
-                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop"
+                <div class="photos-masonry">
+                    <div class="photo-item hero-photo">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=800&fit=crop"
                             alt="Ảnh cưới chính">
                         <div class="photo-overlay">
                             <h3>Hữu Kim & Thảo Anh</h3>
                             <p>Tình yêu đích thực</p>
                         </div>
                     </div>
-                    <div class="photo-item">
-                        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&h=300&fit=crop"
+                    <div class="photo-item tall">
+                        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&h=600&fit=crop"
                             alt="Ảnh đôi 1">
                     </div>
-                    <div class="photo-item">
-                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=300&fit=crop"
+                    <div class="photo-item wide">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&h=300&fit=crop"
                             alt="Ảnh đôi 2">
                     </div>
-                    <div class="photo-item">
-                        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&h=300&fit=crop"
+                    <div class="photo-item square">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=400&fit=crop"
                             alt="Ảnh đôi 3">
                     </div>
-                    <div class="photo-item">
-                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop"
+                    <div class="photo-item medium">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500&h=400&fit=crop"
                             alt="Ảnh đôi 4">
+
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- Gallery Section -->
@@ -286,56 +323,26 @@
             </div>
         </section>
 
-        <!-- Gift Section -->
-        <section class="gift-section">
-            <div class="container">
-                <h2 class="section-title">Mừng Cưới</h2>
-                <p class="gift-subtitle">Sự hiện diện của bạn là món quà lớn nhất <br /> Nếu bạn muốn gửi lời chúc mừng
-                </p>
-                <div class="heart-button" onclick="toggleQR()">
-                    <i class="fas fa-heart"></i>
-                </div>
-                <div class="qr-container" id="qrContainer">
-                    <div class="qr-grid">
-                        <div class="qr-card">
-                            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=400&fit=crop"
-                                alt="Chú rể" class="qr-avatar">
-                            <h3>Nhà Trai</h3>
-                            <p>Hữu Kim</p>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Bank:%20Vietcombank%0AAccount:%20123456789%0AName:%20Huu%20Kim"
-                                alt="QR Nhà Trai" class="qr-code">
-                        </div>
-                        <div class="qr-card">
-                            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=400&fit=crop"
-                                alt="Cô dâu" class="qr-avatar">
-                            <h3>Nhà Gái</h3>
-                            <p>Thảo Anh</p>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Bank:%20Techcombank%0AAccount:%20987654321%0AName:%20Thao%20Anh"
-                                alt="QR Nhà Gái" class="qr-code">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <!-- RSVP Section -->
         <section class="rsvp-section">
             <div class="container">
                 <h2 class="section-title">Xác Nhận Tham Dự</h2>
                 <p class="rsvp-subtitle">Vui lòng cho chúng tôi biết bạn có thể tham dự không</p>
-                <form class="rsvp-form" id="rsvpForm">
+                <form class="rsvp-form" id="rsvpForm" method="post" action="" name="contact-form">
                     <div class="form-group">
-                        <input type="text" id="guestName" placeholder="Tên của bạn" required>
+                        <input type="text" name="Họ tên" id="guestName" placeholder="Họ và tên *" required>
                     </div>
                     <div class="form-group">
-                        <select id="attendance" required>
-                            <option value="">Bạn có thể tham dự không?</option>
-                            <option value="yes">Có, tôi sẽ tham dự</option>
-                            <option value="no">Rất tiếc, tôi không thể tham dự</option>
+                        <select id="attendance" required name="Tham dự">
+                            <option value="">Bạn có thể tham dự không? *</option>
+                            <option value="Có">Có, tôi sẽ tham dự</option>
+                            <option value="Không">Rất tiếc, tôi không thể tham dự</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" placeholder="Lời chúc của bạn (tùy chọn)"></textarea>
+                        <textarea id="message" placeholder="Lời chúc của bạn (tùy chọn)" rows="4" name="Lời chúc"></textarea>
                     </div>
                     <button type="submit" class="submit-btn">
                         <i class="fas fa-paper-plane"></i> Gửi xác nhận
@@ -343,6 +350,27 @@
                 </form>
             </div>
         </section>
+
+        <!-- QR Modal -->
+        <div class="qr-modal" id="popupQR" style="display: none;">
+            <div class="qr-modal-content">
+                <span class="qr-close" onclick="hideDialogDonate()">&times;</span>
+                <h2>Mừng Cưới</h2>
+                <p>Sự hiện diện của bạn là món quà lớn nhất</p>
+                <div class="qr-grid">
+                    <div class="qr-card">
+                        <h3>Nhà Trai</h3>
+                        <p>Hữu Kim</p>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Bank:%20Vietcombank%0AAccount:%20123456789%0AName:%20Huu%20Kim" alt="QR Nhà Trai" class="qr-code">
+                    </div>
+                    <div class="qr-card">
+                        <h3>Nhà Gái</h3>
+                        <p>Thảo Anh</p>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Bank:%20Techcombank%0AAccount:%20987654321%0AName:%20Thao%20Anh" alt="QR Nhà Gái" class="qr-code">
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="footer">
