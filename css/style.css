@@ -6,12 +6,14 @@
 }
 
 body {
-  font-family: "Playfair Display", serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
   color: #2c1810;
   overflow-x: hidden;
-  cursor: none;
+  /* cursor: none; */
   background: #fefefe;
+  margin: 0;
+  padding: 0;
 }
 
 /* Custom Cursor */
@@ -81,20 +83,31 @@ button:hover,
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 9999;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: cardFadeOut 1s ease-in-out 2.7s forwards;
+  /* animation: cardFadeOut 1s ease-in-out 2.7s forwards; */
 }
 
 .card-left,
 .card-right {
   width: 50vw;
   height: 100vh;
-  background: #9b111e;
+  /* background: #9b111e; */
   position: relative;
   overflow: hidden;
+  background-image: url(../images/red.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-right {
+  transform: scaleX(-1);
 }
 
 .card-left {
@@ -107,15 +120,31 @@ button:hover,
 
 .circle-left {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   background: rgb(255, 255, 255);
-  border-radius: 50%;
-  animation: cardOpenLeft 1s ease-out forwards;
   background-image: url(../images/hi.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  animation: hiOpenLeft 2s linear 1s forwards, circleFadeOut 2.4s linear 0.9s forwards;
+}
+
+.circle-right {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  animation: hiOpenRight 2s linear 1s both, circleFadeOut 2s linear 1s both;
+}
+
+@keyframes hideFirst {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .double-happiness {
@@ -142,8 +171,10 @@ button:hover,
 }
 
 .main-content {
-  opacity: 0;
-  animation: mainContentFadeIn 0.8s ease-in-out 3s forwards;
+  /* opacity: 0;
+  animation: mainContentFadeIn 0.8s ease-in-out 3s forwards; */
+  background: #FAF0E6;
+  padding: 0 10%;
 }
 
 /* Keyframes */
@@ -151,6 +182,7 @@ button:hover,
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -158,10 +190,96 @@ button:hover,
 
 @keyframes cardOpenRight {
   0% {
+    transform: scaleX(-1) translateX(0);
+  }
+
+  100% {
+    transform: scaleX(-1) translateX(-100%);
+  }
+}
+
+@keyframes hiOpenLeft {
+  0% {
     transform: translateX(0);
   }
+
   100% {
-    transform: translateX(100%);
+    transform: translateX(-50vw);
+  }
+}
+
+@keyframes boundHi {
+  0% {
+    transform: translateY(-50vh);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  25% {
+    transform: translateY(-50vh);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  }
+
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  65% {
+    transform: translateY(-15px);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  }
+
+  80% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  90% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hiOpenRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(50vw);
+  }
+}
+
+@keyframes hideFirst {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  99.9% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes circleFadeOut {
+
+  0%,
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -170,6 +288,7 @@ button:hover,
     opacity: 0;
     transform: translateY(-50%) scale(0.5);
   }
+
   100% {
     opacity: 1;
     transform: translateY(-50%) scale(1);
@@ -181,6 +300,7 @@ button:hover,
     transform: translateY(-50%) translateX(0);
     opacity: 1;
   }
+
   100% {
     transform: translateY(-50%) translateX(-100vw);
     opacity: 0.85;
@@ -192,6 +312,7 @@ button:hover,
     transform: translateY(-50%) translateX(0);
     opacity: 0.85;
   }
+
   100% {
     transform: translateY(-50%) translateX(100vw);
     opacity: 0.85;
@@ -202,6 +323,7 @@ button:hover,
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     visibility: hidden;
@@ -213,6 +335,7 @@ button:hover,
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -220,10 +343,12 @@ button:hover,
 }
 
 @keyframes heartBeat {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.2);
   }
@@ -233,6 +358,7 @@ button:hover,
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -292,6 +418,7 @@ button:hover,
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -301,8 +428,7 @@ button:hover,
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-    url("https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3")
-      center/cover;
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3") center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -314,7 +440,7 @@ button:hover,
 
 .overlay {
   position: relative;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 153, 255, 0.5);
   padding: 60px 80px;
   transform: rotate(-45deg);
   border-radius: 20px;
@@ -355,11 +481,9 @@ button:hover,
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
-    circle at center,
-    transparent 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
+  background: radial-gradient(circle at center,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 100%);
 }
 
 .hero-content {
@@ -413,6 +537,7 @@ button:hover,
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -420,16 +545,19 @@ button:hover,
 }
 
 @keyframes heartFloat {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
 }
 
 @keyframes bounce {
+
   0%,
   20%,
   50%,
@@ -437,9 +565,11 @@ button:hover,
   100% {
     transform: translateX(-50%) translateY(0);
   }
+
   40% {
     transform: translateX(-50%) translateY(-10px);
   }
+
   60% {
     transform: translateX(-50%) translateY(-5px);
   }
@@ -458,7 +588,7 @@ button:hover,
   font-family: "Dancing Script", cursive;
   font-size: 3rem;
   color: #0099ff;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   position: relative;
 }
 
@@ -511,12 +641,9 @@ button:hover,
 /* Story Section */
 .story-section {
   padding: 100px 0;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.95),
-      rgba(255, 255, 255, 0.95)
-    ),
-    url("https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=1200&h=800&fit=crop")
-      center/cover;
+  background: linear-gradient(rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.95)),
+    url("https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=1200&h=800&fit=crop") center/cover;
   position: relative;
   z-index: 10;
   background-attachment: fixed;
@@ -650,6 +777,7 @@ button:hover,
     opacity: 0;
     transform: translateX(-100px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -661,6 +789,7 @@ button:hover,
     opacity: 0;
     transform: translateX(100px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -1018,23 +1147,6 @@ button:hover,
   padding-bottom: 50px;
 }
 
-.gallery-item {
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-  transform: scale(1.05);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
-
 .swiper-pagination-bullet {
   background: #0099ff;
   opacity: 0.5;
@@ -1051,8 +1163,7 @@ button:hover,
 
 /* RSVP Section */
 .rsvp-section {
-  padding: 100px 0;
-  background: white;
+  margin-bottom: 30px;
 }
 
 .rsvp-subtitle {
@@ -1065,6 +1176,9 @@ button:hover,
 .rsvp-form {
   max-width: 600px;
   margin: 0 auto;
+  background: #c00000;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .form-group {
@@ -1096,8 +1210,7 @@ button:hover,
 }
 
 .submit-btn {
-  background: linear-gradient(145deg, #0099ff, #0077cc);
-  color: white;
+  color: rgba(0, 153, 255, 1);
   padding: 15px 40px;
   border: none;
   border-radius: 25px;
@@ -1449,10 +1562,12 @@ button:hover,
 }
 
 @keyframes gentleFloat {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-8px);
   }
@@ -1464,10 +1579,12 @@ button:hover,
 }
 
 @keyframes heartPulse {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
@@ -1488,16 +1605,20 @@ button:hover,
 }
 
 @keyframes photoFloat {
+
   0%,
   100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   25% {
     transform: translateY(-8px) rotate(1deg);
   }
+
   50% {
     transform: translateY(-5px) rotate(-1deg);
   }
+
   75% {
     transform: translateY(-12px) rotate(0.5deg);
   }
@@ -1513,10 +1634,12 @@ button:hover,
 }
 
 @keyframes musicGlow {
+
   0%,
   100% {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   }
+
   50% {
     box-shadow: 0 8px 35px rgba(0, 153, 255, 0.5);
   }
@@ -1524,6 +1647,7 @@ button:hover,
 
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
+
   .floating-elements,
   .particles-container,
   .typewriter,
@@ -1580,11 +1704,13 @@ button:hover,
 }
 
 @keyframes loadingPulse {
+
   0%,
   100% {
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(1.3);
     opacity: 0.7;
@@ -1644,15 +1770,18 @@ button:hover,
 }
 
 @keyframes floatUpDown {
+
   0%,
   100% {
     transform: translateY(100vh) rotate(0deg);
     opacity: 0;
   }
+
   10%,
   90% {
     opacity: 0.7;
   }
+
   50% {
     transform: translateY(-10vh) rotate(180deg);
     opacity: 1;
@@ -1684,13 +1813,16 @@ button:hover,
     transform: translateY(100vh) translateX(0) scale(0);
     opacity: 0;
   }
+
   10% {
     opacity: 1;
     transform: scale(1);
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     transform: translateY(-10vh) translateX(100px) scale(0);
     opacity: 0;
@@ -1739,10 +1871,12 @@ button:hover,
 }
 
 @keyframes musicWave {
+
   0%,
   100% {
     transform: scaleY(1);
   }
+
   50% {
     transform: scaleY(2);
   }
@@ -1760,16 +1894,19 @@ button:hover,
   0% {
     width: 0;
   }
+
   100% {
     width: 100%;
   }
 }
 
 @keyframes blinkCursor {
+
   0%,
   50% {
     border-color: #0099ff;
   }
+
   51%,
   100% {
     border-color: transparent;
@@ -1819,11 +1956,13 @@ button:hover,
 }
 
 @keyframes sparkle {
+
   0%,
   100% {
     opacity: 0;
     transform: scale(0) rotate(0deg);
   }
+
   50% {
     opacity: 1;
     transform: scale(1) rotate(180deg);
@@ -1840,6 +1979,7 @@ button:hover,
   from {
     text-shadow: 0 0 10px #0099ff, 0 0 20px #0099ff, 0 0 30px #0099ff;
   }
+
   to {
     text-shadow: 0 0 20px #0099ff, 0 0 30px #0099ff, 0 0 40px #0099ff;
   }
@@ -1855,13 +1995,16 @@ button:hover,
     opacity: 0;
     transform: scale(0.3) translateY(50px);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.05) translateY(-10px);
   }
+
   70% {
     transform: scale(0.9) translateY(0);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -1881,12 +2024,10 @@ button:hover,
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
   transition: left 0.5s ease;
   z-index: 2;
 }
@@ -1908,11 +2049,9 @@ button:hover,
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-    circle at center,
-    rgba(0, 153, 255, 0.1),
-    transparent
-  );
+  background: radial-gradient(circle at center,
+      rgba(0, 153, 255, 0.1),
+      transparent);
   transform: scale(0);
   transition: transform 0.3s ease;
 }
@@ -1934,12 +2073,10 @@ button:hover,
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(
-    from 0deg,
-    transparent,
-    rgba(0, 153, 255, 0.1),
-    transparent
-  );
+  background: conic-gradient(from 0deg,
+      transparent,
+      rgba(0, 153, 255, 0.1),
+      transparent);
   animation: rotate 4s linear infinite;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1953,6 +2090,7 @@ button:hover,
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -2181,35 +2319,35 @@ button:hover,
   animation: customAni3 1.5s ease alternate infinite;
 }
 
-.front:hover ~ .back {
+.front:hover~.back {
   transform: translateY(-0.5rem);
 }
 
-.front:hover ~ .sticky-btn-opener {
+.front:hover~.sticky-btn-opener {
   z-index: 100;
   transform: rotateX(180deg) translateY(-0.5rem);
 }
 
-.front:hover ~ .sticky-btn-opener path {
+.front:hover~.sticky-btn-opener path {
   fill: #ce062c;
 }
 
-.front:hover ~ .money1 {
+.front:hover~.money1 {
   z-index: 600;
   transform: translateY(-3rem) translateX(0rem) rotateZ(3deg) scale(1);
 }
 
-.front:hover ~ .money2 {
+.front:hover~.money2 {
   z-index: 700;
   transform: translateY(-4rem) translateX(-0.2rem) rotateZ(-3deg) scale(1);
 }
 
-.front:hover ~ .money3 {
+.front:hover~.money3 {
   z-index: 600;
   transform: translateY(-4.6rem) translateX(-2.5rem) rotateZ(-1deg) scale(1);
 }
 
-.front:hover ~ .button {
+.front:hover~.button {
   transform: translateY(0.2rem) translateX(-50%);
 }
 
